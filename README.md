@@ -1,112 +1,57 @@
-
-
----
-
-```markdown
 # 📄 RAG Streamlit App
 
-A simple Retrieval-Augmented Generation (RAG) application built using:
-- **Streamlit** for the user interface
-- **Google Gemini API** for response generation
-- **FAISS** for fast similarity search
-- **Sentence Transformers** for semantic embeddings
+A simple **Retrieval-Augmented Generation (RAG)** application that lets you **chat with your own documents** using a Streamlit interface powered by:
+
+- **Google Gemini 2.0 Flash**
+- **FAISS** for vector similarity search
+- **Sentence Transformers** for embeddings
+- **Streamlit** for interactive web UI
 
 ---
 
 ## 🚀 Features
 
-- Upload and chat with **PDF**, **DOCX**, or **TXT** files.
-- Uses **RAG pipeline** to fetch relevant document chunks before answering.
-- Gemini strictly responds based on document context.
-- Chat history is preserved and exportable to `.docx`.
+- Upload and chat with **PDF**, **DOCX**, or **TXT** files
+- Retrieves context chunks relevant to your query using FAISS
+- Uses **Gemini** to generate answers only based on the uploaded content
+- Saves **chat history** to `.docx` with clean formatting
+- Fast and user-friendly document-based chatbot
 
 ---
 
 ## 🧠 How It Works
 
-1. **Upload Documents**  
-   Upload multiple files (`.pdf`, `.docx`, `.txt`).
+1. **Document Upload**  
+   Upload multiple documents in `.pdf`, `.docx`, or `.txt` formats.
 
-2. **Preprocessing**  
-   Documents are chunked and encoded using `all-MiniLM-L6-v2`.
+2. **Preprocessing & Chunking**  
+   Files are processed into manageable text chunks using `split_documents()`.
 
-3. **Retrieval**  
-   FAISS retrieves top relevant chunks for each query.
+3. **Vector Embedding & Indexing**  
+   Chunks are encoded via Sentence Transformers (`all-MiniLM-L6-v2`) and indexed with FAISS.
 
-4. **Answer Generation**  
-   Gemini 2.0 Flash answers using only the context provided.
+4. **Query Handling**  
+   User questions are embedded and searched against the FAISS index.
+
+5. **Answer Generation**  
+   Gemini answers based **only on the retrieved chunks**. If nothing matches, it responds gracefully.
+
+6. **Chat Logging**  
+   Chat history is saved into a `.docx` file with clear structure.
 
 ---
 
 ## 📂 Project Structure
 
-```
-
-project/
+rag-streamlit-app/
 │
-├── app.py                   # Main Streamlit app
-├── config.py                # Contains Gemini API key
-├── loaders.py               # PDF/DOCX/TXT loader utilities
-├── processor.py             # Text chunking logic
-├── gemini\_chain.py          # Core RAG logic
-├── requirements.txt
-└── README.md
-
-````
-
----
-
-## ⚙️ Setup Instructions
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-````
-
-### 2. Create a virtual environment and activate it
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Add your Gemini API Key
-
-Create a file named `config.py`:
-
-```python
-GEMINI_API_KEY = "your_gemini_api_key_here"
-```
-
-### 5. Run the Streamlit app
-
-```bash
-streamlit run app.py
-```
-
----
-
-## 📦 Export Chat History
-
-All chat logs are saved in `.docx` format with a clean structure for reference.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-```
-
----
+├── app.py # Streamlit entry point
+├── config.py # API key configuration
+├── loaders.py # File loading functions
+├── processor.py # Text splitting logic
+├── gemini_chain.py # RAG logic using Gemini + FAISS
+├── requirements.txt # Python dependencies
+├── .gitignore # Files ignored by Git
+└── README.md # You're here
 
 
-```
