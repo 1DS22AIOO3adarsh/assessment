@@ -41,17 +41,9 @@ A simple **Retrieval-Augmented Generation (RAG)** application that lets you **ch
 
 ---
 
-## 📂 Project Structure
-
-rag-streamlit-app/
-│
-├── app.py # Streamlit entry point
-├── config.py # API key configuration
-├── loaders.py # File loading functions
-├── processor.py # Text splitting logic
-├── gemini_chain.py # RAG logic using Gemini + FAISS
-├── requirements.txt # Python dependencies
-├── .gitignore # Files ignored by Git
-└── README.md # You're here
-
+2. Create a Virtual Environment
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate   # For Windows: venv\Scripts\activate
 
