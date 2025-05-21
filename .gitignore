@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+*.egg-info/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# macOS and Linux
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Python environment files
+*.env
+.env
+
+# Secrets and config
+config.py
+*.pem
+*.key
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Log and cache
+*.log
+*.db
+*.sqlite3
+*.pkl
+.cache/
+__pycache__/
+*.gz
+*.zip
+*.tar
+
+# PyInstaller
+*.spec
+
+# Build artifacts
+build/
+dist/
+*.egg
+.eggs/
+
+test/
