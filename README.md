@@ -41,9 +41,3 @@ A simple **Retrieval-Augmented Generation (RAG)** application that lets you **ch
 
 ---
 
-2. Create a Virtual Environment
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate   # For Windows: venv\Scripts\activate
-
